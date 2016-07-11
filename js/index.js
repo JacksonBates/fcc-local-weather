@@ -1,24 +1,39 @@
-function getPos() {
-  navigator.geolocation.getCurrentPosition(function(position) {
-    var localLat = position.coords.latitude;
-    var localLon = position.coords.longitude;
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=" + localLat + "&lon=" + localLon + "&APPID=77aec1ab4dbea437d871ce89db104e8d", function(json) {
-    var tempKel = json.main.temp; 
-    // substract 273.15 to convert to Celcius
-    var tempCel = Math.floor(tempKel - 273.15);
-    tempCel = tempCel.toString();
-    tempCel = tempCel + "\xB0C";
-    var tempFar = Math.floor((tempKel * 9/5) - 459.67);
+$(document).ready(function() {
+  $.getJSON('http://ipinfo.io', function(data){ 
+    
+    //Get position for weather api url 
+    var locationString = data.loc;
+    var locationArray = locationString.split(",");
+    var localLat = locationArray[0];
+    var localLon = locationArray[1];
+    var weatherApiURL = 'http://api.openweathermap.org/data/2.5/weather?lat=' +
+        localLat + '&lon=' + localLon + '&APPID=77aec1ab4dbea437d871ce89db104e8d';
+    $.getJSON(weatherApiURL, function(json) {
+      
+      //Set up temp string variables
+      var tempKel = json.main.temp;
+      var tempCel = Math.floor(tempKel - 273.15);
+      tempCel = tempCel.toString();
+      tempCel = tempCel + "\xB0C";
+      var tempFar = Math.floor((tempKel * 9/5) - 459.67);
       tempFar = tempFar.toString();
       tempFar = tempFar + "\xB0F";
+
+      
+      //Set unit state
       var tempUnit = "C";
-    var description = json.weather[0].description;
-    var icon = json.weather[0].icon;
-    // Write values to HTML page
-    $(".city").text(json.name);
-    $(".temp").text(tempCel);
-    $(".description").text(description);
-    $(".weather-icon").html("<img class='icon-border center-block' src='http://openweathermap.org/img/w/" + icon + ".png'>");
+      
+      //Get weather information
+      var description = json.weather[0].description;
+      var icon = json.weather[0].icon;
+      console.log(icon);
+
+      // Write values to HTML page
+      $(".city").text(json.name);
+      $(".temp").text(tempCel);
+      $(".description").text(description);
+      $(".weather-icon").html("<img class='icon-border center-block' src='http://openweathermap.org/img/w/" + icon + ".png'>");
+
       // Set Background
       switch (icon) {
         case "01d":
@@ -37,6 +52,8 @@ function getPos() {
           break;
         case "09d":
         case "09n":
+        case "10d":
+        case "10n":
           $('body').css('background-image', 'url(http://blog.ctnews.com/weather/files/2014/06/isss.jpg)');
           break;
         case "11d":
@@ -51,7 +68,8 @@ function getPos() {
         case "50n":
           $('body').css('background-image', 'url(http://weknowyourdreamz.com/images/fog/fog-08.jpg)');
           break;
-      }
+      };
+      
       // Toggle units
       $("#degree-switch").on("click", function () { 
         if (tempUnit === "C") {
@@ -60,36 +78,8 @@ function getPos() {
         } else {
           $(".temp").text(tempCel);
           tempUnit = "C";
-        }
-      })
-  })  
-  })
-}
-
-var options = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 0
-};
-
-function success(position, options) {
-  var crd = position.coords;
-  var localLat = crd.latitude;
-  var localLon = crd.longitude;
-}
-
-getPos();
-
-/*$(document).ready(function () {
-  var localLat = navigator.geolocation.getCurrentPosition(function(position){
-    position.coords.latitude;
-  })
-  console.log(localLat);
-  var localLon = navigator.geolocation.getCurrentPosition(function(position){
-    position.coords.latitude;
-  })
-  $.getJSON("https://api.openweathermap.org/data/2.5/weather?lat=" + localLat + "&lon=" + localLon, function(json) {
-    console.log(JSON.stringify(json));
-  }) 
-});
-*/
+        };
+      }); // <-- end of onclick for degree switch
+    }); // <-- End of weather api call  
+  }); // <-- End of ip api call
+}); // <-- End of Document.ready call
