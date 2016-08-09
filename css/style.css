@@ -1,6 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
 .text-deets {
   font-size: 3em;
-  font-family: Helvetica;
 }
 
 footer {
@@ -13,13 +14,14 @@ p, h1 {
 
 body {
   background-size:cover;
+  font-family: "Roboto";
 }
 
 .icon-border {
-  background-color: gray;
-  border-style:solid;
-  border-width: 10px;
-  border-color: gray;
+  background-color: inherit;
+  /*border-style:solid;
+  border-width: 10px;*/
+  /*border-color: gray;*/
   border-radius: 50%;
 }
 

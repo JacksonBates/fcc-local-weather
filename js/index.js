@@ -19,7 +19,6 @@ $(document).ready(function() {
       tempFar = tempFar.toString();
       tempFar = tempFar + "\xB0F";
 
-      
       //Set unit state
       var tempUnit = "C";
       
@@ -31,8 +30,8 @@ $(document).ready(function() {
       // Write values to HTML page
       $(".city").text(json.name);
       $(".temp").text(tempCel);
-      $(".description").text(description);
-      $(".weather-icon").html("<img class='icon-border center-block' src='http://openweathermap.org/img/w/" + icon + ".png'>");
+      $(".description").text("Weather: " + description);
+      $(".weather-icon").html("<img class='icon-border' src='http://openweathermap.org/img/w/" + icon + ".png'>");
 
       // Set Background
       switch (icon) {
