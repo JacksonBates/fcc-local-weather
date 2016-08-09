@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
 
 .text-deets {
   font-size: 3em;
@@ -6,6 +7,10 @@
 
 footer {
   background-color: #EEE;
+}
+
+h1 {
+  font-family: 'Roboto Slab';
 }
 
 p, h1 {
