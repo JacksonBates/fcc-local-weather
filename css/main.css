@@ -40,11 +40,11 @@ footer p {
   order: 0; }
 
 .weather-icon-flex {
-  flex: 5 1;
+  flex: 5 1 50%;
   order: 2; }
 
 .temp-flex {
-  flex: 5 1;
+  flex: 5 1 50%;
   order: 1; }
 
 .description-flex {
