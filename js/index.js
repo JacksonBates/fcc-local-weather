@@ -14,63 +14,65 @@ $(document).ready(function() {
       var tempKel = json.main.temp;
       var tempCel = Math.floor(tempKel - 273.15);
       tempCel = tempCel.toString();
-      tempCel = tempCel + "\xB0C";
+      tempCel = tempCel + "\xB0c";
       var tempFar = Math.floor((tempKel * 9/5) - 459.67);
       tempFar = tempFar.toString();
-      tempFar = tempFar + "\xB0F";
+      tempFar = tempFar + "\xB0f";
 
       //Set unit state
       var tempUnit = "C";
       
       //Get weather information
       var description = json.weather[0].description;
+      description = description.replace(/./,description[0].toUpperCase());
       var icon = json.weather[0].icon;
       console.log(icon);
 
       // Write values to HTML page
       $(".city").text(json.name);
       $(".temp").text(tempCel);
-      $(".description").text("Weather: " + description);
-      $(".weather-icon").html("<img class='icon-border' src='http://openweathermap.org/img/w/" + icon + ".png'>");
+      $(".description").text(description);
 
-      // Set Background
+      // Set icon
       switch (icon) {
         case "01d":
         case "01n":
-          $('body').css('background-image', 'url(http://www.photos-public-domain.com/wp-content/uploads/2011/02/bright-sun-in-blue-sky.jpg)');
+          $(".weather-icon-flex").html("<img class='weather-icon' src='svg/sun.svg'>");
           break;
         case "02d":
         case "02n":
         case "03d":
         case "03n":
-          $('body').css('background-image', 'url(http://canitbesaturdaynow.com/images/fpics/1679/033120bd5d2cfd5c05653a107622e41d.jpg)');
+          $(".weather-icon-flex").html("<img class='weather-icon' src='svg/scattered-cloud.svg'>");
           break;
         case "04d":
         case "04n":
-          $('body').css('background-image', 'url(http://img13.deviantart.net/fa39/i/2015/052/6/1/broken_clouds_by_leo_6tos-d8ixdlv.jpg)');
+          $(".weather-icon-flex").html("<img class='weather-icon' src='svg/cloud.svg'>");
           break;
         case "09d":
         case "09n":
+          $(".weather-icon-flex").html("<img class='weather-icon' src='svg/shower.svg'>");
+          break;          
         case "10d":
         case "10n":
-          $('body').css('background-image', 'url(http://blog.ctnews.com/weather/files/2014/06/isss.jpg)');
+          $(".weather-icon-flex").html("<img class='weather-icon' src='svg/rain.svg'>");
           break;
         case "11d":
         case "11n":
-          $('body').css('background-image', 'url(https://upload.wikimedia.org/wikipedia/commons/1/19/Thunderstorm_in_sydney_2000x1500.png)');
+          $(".weather-icon-flex").html("<img class='weather-icon' src='svg/thunderstorm.svg'>");
           break;
         case "13d":
         case "13n":
-          $('body').css('background-image', 'url(https://upload.wikimedia.org/wikipedia/commons/4/4a/Snow_on_the_mountains_of_Southern_California.jpg)');
+          $(".weather-icon-flex").html("<img class='weather-icon' src='svg/snow.svg'>");
           break;
         case "50d":
         case "50n":
-          $('body').css('background-image', 'url(http://weknowyourdreamz.com/images/fog/fog-08.jpg)');
+          $(".weather-icon-flex").html("<img class='weather-icon' src='svg/fog.svg'>");
           break;
       };
       
       // Toggle units
-      $("#degree-switch").on("click", function () { 
+      $(".temp").on("click", function () { 
         if (tempUnit === "C") {
           $(".temp").text(tempFar);
           tempUnit = "F";

@@ -1,0 +1,128 @@
+// Fonts
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+
+$body-font: 'Roboto', sans-serif;
+$heading-font: 'Roboto Slab', Georgia;
+$text-color: #404040;
+$head-color: #71ABA2;
+$body-color: #91DDD1;
+$legs-color: #FFE98A;
+$feet-color: #FFFEED;
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font;
+  color: $text-color;
+}
+
+p {
+  font-family: $heading-font;
+  color: $text-color;
+}
+
+a {
+  text-decoration: none;
+  color: cornflowerblue;
+}
+
+footer {
+  p {
+    font-family: $body-font;
+  }
+}
+
+.city-flex {
+  background-color: $head-color;
+}
+
+.temp-flex, .weather-icon-flex {
+  font-family: $heading-font;
+  background-color: $body-color;
+}
+
+.description-flex {
+  background-color: $legs-color;
+}
+
+// Flex box below
+
+.wrapper {
+  // border: solid 10px mistyrose;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  height: 100vh;
+}
+
+.item {
+  width: 100%;
+  // border: solid 5px goldenrod;
+  flex: 1;
+}
+
+.city-flex {
+  flex: 10 0 100%;
+  order: 0;
+}
+
+.weather-icon-flex {
+  flex: 5 1;
+  order: 2;
+}
+
+.temp-flex {
+  flex: 5 1;
+  order: 1;
+}
+
+.description-flex {
+  flex: 10 0 100%;
+  order: 3;
+}
+.footer {
+  flex: 10 0 100%;
+  order: 4;
+  background-color: $feet-color;
+  align-items: flex-end;
+}
+
+.footer {
+  img {
+    vertical-align: middle;
+    height: 2em;
+  }
+}
+
+.city {
+    font-size: 3em;
+  }
+  .temp {
+    font-weight: bolder;
+    font-size: 4em;
+  }
+  .weather-icon {
+    height: 6em;
+  }
+  .description {
+    font-size: 2em;
+  }
+
+@media (min-width: 420px) {
+  // font sizes
+
+  .city {
+    font-size: 4em;
+  }
+  .temp {
+    font-weight: bolder;
+    font-size: 6em;
+  }
+  .weather-icon {
+    height: 10em;
+  }
+  .description {
+    font-size: 3em;
+  }
+}
+

@@ -2,27 +2,22 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Local Weather - FCC</title>
+    <title>Local Weather</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <h1 class="text-center">Local Weather App - Free Code Camp</h1>
-        <p class="city text-center text-deets"></p>
-        <p class="text-center text-deets"><span class="temp"></span> <button class="btn btn-lg btn-info" id="degree-switch">Toggle &deg;C | &deg; F</button></p>
-        <p class="text-center text-deets"><span class="description"></span> <span class="weather-icon"></span></p>
-        <!-- <div class="weather-icon center-block"></div> -->
-        <footer class="footer navbar-fixed-bottom text-center">
-        Data provided by <a href="http://openweathermap.com">OpenWeatherMap</a></p>
-        </footer>
-      </div> <!-- end container -->
-      
-      <!-- Scripts below this line -->
-
-      <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
-      <script src="js/index.js"></script>
+    <div class='wrapper'>
+      <div class='item city-flex'><h1 class="city"></h1></div>
+      <div class="item weather-icon-flex"></div>
+      <div class="item temp-flex"><p><span class="temp"></span></p></div>
+      <div class="item description-flex"><p><span class="description"></span><span class="weather-icon"></span></p></div>
+      <footer class="footer item">
+        <p>Data provided by <a href="http://openweathermap.com">OpenWeatherMap</a>. Weather icons by <a data-file="fog" href="http://www.flaticon.com/authors/rami-mcmin">Rami McMin</a> and <a data-file="cloud" href="http://www.flaticon.com/authors/designmodo">Designmodo</a>, via <a href="http://www.flaticon.com">flaticon.com</a>.<a href="http://creativecommons.org/licenses/by/3.0/"><img src="license/by.png" alt="creative commons attribution"></a></p>
+      </footer>
+    </div> <!-- end container -->
+    <!--Scripts below this line -->
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

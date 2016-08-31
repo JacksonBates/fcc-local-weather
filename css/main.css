@@ -1,0 +1,86 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto Slab", Georgia;
+  color: #404040; }
+
+p {
+  font-family: "Roboto Slab", Georgia;
+  color: #404040; }
+
+a {
+  text-decoration: none;
+  color: cornflowerblue; }
+
+footer p {
+  font-family: "Roboto", sans-serif; }
+
+.city-flex {
+  background-color: #71ABA2; }
+
+.temp-flex, .weather-icon-flex {
+  font-family: "Roboto Slab", Georgia;
+  background-color: #91DDD1; }
+
+.description-flex {
+  background-color: #FFE98A; }
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  height: 100vh; }
+
+.item {
+  width: 100%;
+  flex: 1; }
+
+.city-flex {
+  flex: 10 0 100%;
+  order: 0; }
+
+.weather-icon-flex {
+  flex: 5 1;
+  order: 2; }
+
+.temp-flex {
+  flex: 5 1;
+  order: 1; }
+
+.description-flex {
+  flex: 10 0 100%;
+  order: 3; }
+
+.footer {
+  flex: 10 0 100%;
+  order: 4;
+  background-color: #FFFEED;
+  align-items: flex-end; }
+
+.footer img {
+  vertical-align: middle;
+  height: 2em; }
+
+.city {
+  font-size: 3em; }
+
+.temp {
+  font-weight: bolder;
+  font-size: 4em; }
+
+.weather-icon {
+  height: 6em; }
+
+.description {
+  font-size: 2em; }
+
+@media (min-width: 420px) {
+  .city {
+    font-size: 4em; }
+  .temp {
+    font-weight: bolder;
+    font-size: 6em; }
+  .weather-icon {
+    height: 10em; }
+  .description {
+    font-size: 3em; } }
