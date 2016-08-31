@@ -69,6 +69,7 @@ footer p {
   font-size: 4em; }
 
 .weather-icon {
+  margin-top: 6%;
   height: 6em; }
 
 .description {
