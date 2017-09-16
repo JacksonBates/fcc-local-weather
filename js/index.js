@@ -1,12 +1,12 @@
 $(document).ready(function() {
-  $.getJSON('http://ipinfo.io', function(data){ 
+  $.getJSON('https://ipinfo.io', function(data){ 
     
     //Get position for weather api url 
     var locationString = data.loc;
     var locationArray = locationString.split(",");
     var localLat = locationArray[0];
     var localLon = locationArray[1];
-    var weatherApiURL = 'http://api.openweathermap.org/data/2.5/weather?lat=' +
+    var weatherApiURL = 'https://api.openweathermap.org/data/2.5/weather?lat=' +
         localLat + '&lon=' + localLon + '&APPID=77aec1ab4dbea437d871ce89db104e8d';
     $.getJSON(weatherApiURL, function(json) {
       
